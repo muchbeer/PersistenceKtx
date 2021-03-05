@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sleepTrackerFragment">
+
+    <fragment
+        android:id="@+id/sleepTrackerFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.SleepTrackerFragment"
+        android:label="SleepTrackerFragment"
+        tool:layout="@layout/fragment_sleep_tracker">
+        <action
+            android:id="@+id/sleepTrackFrag_to_sleepQualFrag"
+            app:destination="@id/sleepQualityFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/sleepQualityFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.SleepQualityFragment"
+        android:label="fragment_sleep_quality"
+        tool:layout="@layout/fragment_sleep_quality" >
+        <action
+            android:id="@+id/action_sleepQualityFragment_to_sleepTrackerFragment"
+            app:destination="@id/sleepTrackerFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="keyLong"
+            app:argType="long" />
+
+    </fragment>
+</navigation>
