@@ -56,13 +56,17 @@ class SleepTrackerFragment : Fragment() {
 
         viewModel.snackBarEnabledOnClear.observe(viewLifecycleOwner, Observer {
             if(it ==true) {
-                Snackbar.make(requireActivity()!!.findViewById(android.R.id.content), "all data is clear",
+                Snackbar.make(requireActivity().findViewById(android.R.id.content), "all data is clear",
                                        Snackbar.LENGTH_LONG).show()
 
                 viewModel.doneWithSnackBarEnabled()
             }
 
         })
+
+        binding.btnOnline.setOnClickListener {
+            this.findNavController().navigate(SleepTrackerFragmentDirections.actionOnlineFragFromSleepTracker())
+        }
         return binding.root
     }
 

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/sleepTrackFrag_to_sleepQualFrag"
             app:destination="@id/sleepQualityFragment" />
+        <action
+            android:id="@+id/actionOnlineFragFromSleepTracker"
+            app:destination="@id/onlineFragment" />
 
 
     </fragment>
@@ -29,5 +32,23 @@
             android:name="keyLong"
             app:argType="long" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/onlineFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.OnlineFragment"
+        android:label="OnlineFragment"
+        tool:layout="@layout/fragment_online">
+        <action
+            android:id="@+id/actionShowDetail"
+            app:destination="@id/onlineDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onlineDetailFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.OnlineDetailFragment"
+        android:label="OnlineDetailFragment"
+        tool:layout="@layout/fragment_online_detail">
+        <argument
+            android:name="marsParcelable"
+            app:argType="raum.muchbeer.persistencektx.model.MarsEntity" />
     </fragment>
 </navigation>
