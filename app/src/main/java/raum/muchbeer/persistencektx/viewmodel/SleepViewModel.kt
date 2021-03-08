@@ -1,12 +1,10 @@
 package raum.muchbeer.persistencektx.viewmodel
 
 import android.app.Application
-import android.text.method.TransformationMethod
 import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
-import raum.muchbeer.persistencektx.database.SleepDao
-import raum.muchbeer.persistencektx.database.SleepDatabase.Companion.getInstance
+import raum.muchbeer.persistencektx.database.GeneralDatabase.Companion.getInstance
 import raum.muchbeer.persistencektx.model.SleepEntity
 import raum.muchbeer.persistencektx.util.formatNights
 

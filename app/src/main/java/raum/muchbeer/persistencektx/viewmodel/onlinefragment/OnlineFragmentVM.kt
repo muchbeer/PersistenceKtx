@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import raum.muchbeer.persistencektx.api.MarsApiFilter
-import raum.muchbeer.persistencektx.api.MarsApiStatus
-import raum.muchbeer.persistencektx.api.OnlineInstance
+import raum.muchbeer.persistencektx.network.MarsApiFilter
+import raum.muchbeer.persistencektx.network.MarsApiStatus
+import raum.muchbeer.persistencektx.network.OnlineInstance
 import raum.muchbeer.persistencektx.model.MarsEntity
 
 class OnlineFragmentVM() : ViewModel() {
@@ -38,7 +38,7 @@ class OnlineFragmentVM() : ViewModel() {
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try {
-                _properties.value = OnlineInstance.foodInstance().getEstate(filter.value)
+                _properties.value = OnlineInstance.onlineInstance().getEstate(filter.value)
                 _status.value = MarsApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = MarsApiStatus.ERROR

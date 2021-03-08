@@ -1,4 +1,4 @@
-package raum.muchbeer.persistencektx.fragment
+package raum.muchbeer.persistencektx.fragment.onlinemode
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import raum.muchbeer.persistencektx.R
 import raum.muchbeer.persistencektx.databinding.FragmentOnlineDetailBinding
 import raum.muchbeer.persistencektx.viewmodel.onlinefragment.OnlineDetailFragVMFactory
 import raum.muchbeer.persistencektx.viewmodel.onlinefragment.OnlineDetailFragmentVM
-import raum.muchbeer.persistencektx.viewmodel.onlinefragment.OnlineFragmentVM
 
 
 class OnlineDetailFragment : Fragment() {

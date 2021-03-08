@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/sleepTrackerFragment"
-        android:name="raum.muchbeer.persistencektx.fragment.SleepTrackerFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.sleeptracker.SleepTrackerFragment"
         android:label="SleepTrackerFragment"
         tool:layout="@layout/fragment_sleep_tracker">
         <action
@@ -16,12 +16,15 @@
         <action
             android:id="@+id/actionOnlineFragFromSleepTracker"
             app:destination="@id/onlineFragment" />
+        <action
+            android:id="@+id/actionViewOfflineFrag"
+            app:destination="@id/offlineFragment" />
 
 
     </fragment>
     <fragment
         android:id="@+id/sleepQualityFragment"
-        android:name="raum.muchbeer.persistencektx.fragment.SleepQualityFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.sleeptracker.SleepQualityFragment"
         android:label="fragment_sleep_quality"
         tool:layout="@layout/fragment_sleep_quality" >
         <action
@@ -35,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/onlineFragment"
-        android:name="raum.muchbeer.persistencektx.fragment.OnlineFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.onlinemode.OnlineFragment"
         android:label="OnlineFragment"
         tool:layout="@layout/fragment_online">
         <action
@@ -44,11 +47,16 @@
     </fragment>
     <fragment
         android:id="@+id/onlineDetailFragment"
-        android:name="raum.muchbeer.persistencektx.fragment.OnlineDetailFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.onlinemode.OnlineDetailFragment"
         android:label="OnlineDetailFragment"
         tool:layout="@layout/fragment_online_detail">
         <argument
             android:name="marsParcelable"
             app:argType="raum.muchbeer.persistencektx.model.MarsEntity" />
     </fragment>
+    <fragment
+        android:id="@+id/offlineFragment"
+        android:name="raum.muchbeer.persistencektx.fragment.offlinemode.OfflineFragment"
+        android:label="DevBytes"
+        tool:layout="@layout/fragment_offline"/>
 </navigation>

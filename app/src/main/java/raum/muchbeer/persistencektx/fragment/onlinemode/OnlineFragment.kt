@@ -1,15 +1,14 @@
-package raum.muchbeer.persistencektx.fragment
+package raum.muchbeer.persistencektx.fragment.onlinemode
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import raum.muchbeer.persistencektx.R
 import raum.muchbeer.persistencektx.adapter.OnlineAdapter
-import raum.muchbeer.persistencektx.api.MarsApiFilter
+import raum.muchbeer.persistencektx.network.MarsApiFilter
 import raum.muchbeer.persistencektx.databinding.FragmentOnlineBinding
 import raum.muchbeer.persistencektx.viewmodel.onlinefragment.OnlineFragmentVM
 
@@ -43,14 +42,15 @@ class OnlineFragment : Fragment() {
         viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer { marsEntity ->
             if ( marsEntity !=null ) {
                 // Must find the NavController from the Fragment
-               this.findNavController().navigate(OnlineFragmentDirections.actionShowDetail(marsEntity))
+               this.findNavController().navigate(
+                   OnlineFragmentDirections.actionShowDetail(
+                       marsEntity
+                   )
+               )
                 // Tell the ViewModel we've made the navigate call to prevent multiple navigation
-                    Toast.makeText(activity,"Clicked: ${marsEntity.imgSrcUrl}", Toast.LENGTH_LONG).show()
                 viewModel.displayPropertyDetailsComplete()
             }
         })
-
-
         setHasOptionsMenu(true)
         return binding.root
     }

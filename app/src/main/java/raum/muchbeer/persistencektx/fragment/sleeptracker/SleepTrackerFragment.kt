@@ -1,4 +1,4 @@
-package raum.muchbeer.persistencektx.fragment
+package raum.muchbeer.persistencektx.fragment.sleeptracker
 
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import raum.muchbeer.persistencektx.R
-import raum.muchbeer.persistencektx.database.SleepDatabase
 import raum.muchbeer.persistencektx.databinding.FragmentSleepTrackerBinding
 import raum.muchbeer.persistencektx.viewmodel.SleepViewModel
 import raum.muchbeer.persistencektx.viewmodel.SleepViewModelFactory
@@ -48,7 +47,11 @@ class SleepTrackerFragment : Fragment() {
             night?.let {
                 Log.i("SleepTrackerID", "The id is : ${night.sleepID}")
              //   this.findNavController().navigate(SleepTrackerFragmentDirections.sleepTrackFragToSleepQualFrag(night.sleepID))
-                this.findNavController().navigate(SleepTrackerFragmentDirections.sleepTrackFragToSleepQualFrag(night.sleepID))
+                this.findNavController().navigate(
+                    SleepTrackerFragmentDirections.sleepTrackFragToSleepQualFrag(
+                        night.sleepID
+                    )
+                )
                 viewModel.doneTrackingQuality()
             }
 
@@ -65,7 +68,8 @@ class SleepTrackerFragment : Fragment() {
         })
 
         binding.btnOnline.setOnClickListener {
-            this.findNavController().navigate(SleepTrackerFragmentDirections.actionOnlineFragFromSleepTracker())
+         //   this.findNavController().navigate(SleepTrackerFragmentDirections.actionOnlineFragFromSleepTracker())
+            this.findNavController().navigate(SleepTrackerFragmentDirections.actionViewOfflineFrag())
         }
         return binding.root
     }

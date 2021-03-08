@@ -2,19 +2,27 @@ package raum.muchbeer.persistencektx.adapter
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import raum.muchbeer.persistencektx.R
-import raum.muchbeer.persistencektx.api.MarsApiStatus
+import raum.muchbeer.persistencektx.domain.VideoEntity
+import raum.muchbeer.persistencektx.network.MarsApiStatus
 import raum.muchbeer.persistencektx.model.MarsEntity
 
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsEntity>?) {
     val adapter = recyclerView.adapter as OnlineAdapter
+    adapter.submitList(data)
+}
+
+@BindingAdapter("listDataOffline")
+fun bindRecyclerViewOffline(recyclerView: RecyclerView, data: List<VideoEntity>?) {
+    val adapter = recyclerView.adapter as OfflineAdapter
     adapter.submitList(data)
 }
 
@@ -32,6 +40,15 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
                     .placeholder(R.drawable.loading_animation)
                     .error(R.drawable.ic_broken_image)
             ).into(imgView)
+    }
+}
+
+@BindingAdapter("goneIfNotNull")
+fun progressView(progressBar: ProgressBar, videoTrue: Boolean) {
+    if (videoTrue) {
+        progressBar.visibility = View.GONE
+    } else {
+        progressBar.visibility = View.VISIBLE
     }
 }
 

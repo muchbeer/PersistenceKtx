@@ -12,7 +12,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import raum.muchbeer.persistencektx.database.SleepDao
-import raum.muchbeer.persistencektx.database.SleepDatabase
+import raum.muchbeer.persistencektx.database.GeneralDatabase
 import raum.muchbeer.persistencektx.model.SleepEntity
 import java.io.IOException
 
@@ -20,13 +20,13 @@ import java.io.IOException
 class SleepDatabaseTest {
 
     lateinit var sleepDao : SleepDao
-    lateinit var db : SleepDatabase
+    lateinit var db : GeneralDatabase
 
     @Before
     fun createDb() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
 
-        db = Room.inMemoryDatabaseBuilder(context, SleepDatabase::class.java)
+        db = Room.inMemoryDatabaseBuilder(context, GeneralDatabase::class.java)
             .allowMainThreadQueries()
             .build()
         sleepDao = db.sleepDao
